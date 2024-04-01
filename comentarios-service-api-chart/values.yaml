@@ -1,4 +1,4 @@
-replicaCount: 4
+replicaCount: 1
 
 
 image:
@@ -6,6 +6,9 @@ image:
   pullPolicy: IfNotPresent
   tag: "1.6"
 
+service:
+  type: ClusterIP
+  port: 8080
 
 imagePullSecrets: []
 nameOverride: ""
