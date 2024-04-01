@@ -1,4 +1,4 @@
-replicaCount: 6
+#replicaCount: 6
 
 
 image:
@@ -62,7 +62,7 @@ resources:
 
 autoscaling:
   enabled: true
-  minReplicas: 1
+  minReplicas: 4
   maxReplicas: 50
   targetCPUUtilizationPercentage: 10
   targetMemoryUtilizationPercentage: 90
