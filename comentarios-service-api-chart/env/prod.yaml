@@ -1,5 +1,6 @@
 replicaCount: 1
 
+
 image:
   repository: tmenezesabreu/comentarios-service
   pullPolicy: IfNotPresent
