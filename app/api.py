@@ -20,6 +20,23 @@ app.debug = True
 
 comments = {}
 
+@app.route('/', methods=['GET'])
+def index():
+    try:
+        pod_name = os.environ.get('POD_NAME')
+    except:
+        try:
+            pod_name = os.environ.get('HOSTNAME')
+        except:
+            pod_name = "desconhecido"
+
+    # Chaves redis  == ao número de content_ids
+    total_keys = redisRW.dbsize()
+
+    return jsonify({
+        "pod_name": pod_name,
+        "total_comments": total_keys
+    })
 
 @app.route('/api/comment/new', methods=['POST'])
 def api_comment_new():
