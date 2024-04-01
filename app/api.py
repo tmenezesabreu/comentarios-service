@@ -33,8 +33,17 @@ def index():
 
     return jsonify({
         "pod_name": pod_name,
-        "total_comments": total_keys
+        "total_materias": total_keys,
+        "total_comentarios": getTotalComentarios()
     })
+
+def incrementaContadorComentarios():
+    # Incrementa o contador de comentários
+    redisRW.incr('contador_comentarios_global')
+    print("Novo comentário gravado no redis")
+
+def getTotalComentarios():
+    return int(redisRW.get('contador_comentarios_global') or 0)
 
 @app.route('/api/comment/new', methods=['POST'])
 def api_comment_new():
@@ -51,6 +60,7 @@ def api_comment_new():
 
     ## Para escrita utilizar o redis master
     redisRW.rpush(content_id, json.dumps(new_comment))
+    incrementaContadorComentarios()
     # if content_id in comments:
     #     comments[content_id].append(new_comment)
     # else:
