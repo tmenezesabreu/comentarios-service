@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: tmenezesabreu/comentarios-service
   pullPolicy: IfNotPresent
-  tag: "1.1"
+  tag: "1.2"
 
 imagePullSecrets: []
 nameOverride: ""
