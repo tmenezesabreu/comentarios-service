@@ -22,13 +22,11 @@ comments = {}
 
 @app.route('/', methods=['GET'])
 def index():
+    pod_name = "desconhecido"
     try:
-        pod_name = os.environ.get('POD_NAME')
+        pod_name = os.environ.get('HOSTNAME')
     except:
-        try:
-            pod_name = os.environ.get('HOSTNAME')
-        except:
-            pod_name = "desconhecido"
+        pod_name = "desconhecido"
 
     # Chaves redis  == ao número de content_ids
     total_keys = redisRW.dbsize()
