@@ -76,3 +76,6 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+redis:
+  senha: "4GgQsPDSVU"
