@@ -4,7 +4,7 @@
 image:
   repository: tmenezesabreu/comentarios-service
   pullPolicy: IfNotPresent
-  tag: "1.6"
+  tag: "1.7"
 
 service:
   type: ClusterIP
