@@ -1909,7 +1909,7 @@ server:
     ## Hostnames must be provided if Ingress is enabled.
     ## Secrets must be manually created in the namespace
     hosts:
-      - argocd.68eae016.nip.io
+      - argocd.22ecfa5a.nip.io
 
     # -- List of ingress paths
     paths:
