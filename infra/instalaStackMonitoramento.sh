@@ -13,17 +13,22 @@ case $yynn in
             kubectl create namespace monitoring
             echo "Namespace 'monitoring' criado com sucesso."
         fi
-        # Aqui o helm poderia ele mesmo criar o namespace, porém não acho boa ideia.
+        # Verificação do sucesso do helm install
         helm install --namespace monitoring stack-monitoramento kube-prometheus-stack
-        if [ $? -ne 0]; # workaround devido ao tempo
-          helm upgrade --namespace monitoring stack-monitoramento kube-prometheus-stack
+        if [ $? -ne 0 ]; then # corrigido o erro de sintaxe aqui
+            echo "Erro ao instalar ou atualizar o chart."
+            exit 1
+        else
+            echo "Chart instalado com sucesso."
+        fi
         ;;
     [Nn]* )
         echo "Muito cuidado."
         exit 1
         ;;
     * )
-        echo "Confirme o cluster que vc está com Y/N"
+        echo "Confirme o cluster que você está com Y/N"
         exit 10
         ;;
 esac
+

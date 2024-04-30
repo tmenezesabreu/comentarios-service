@@ -43,7 +43,7 @@ ingress:
     kubernetes.io/ingress.class: nginx
 #    kubernetes.io/tls-acme: "true"
   hosts:
-    - host: comentarios-service-api.68eae016.nip.io
+    - host: comentarios-service-api.22ecfa5a.nip.io
       paths:
         - path: /
           pathType: ImplementationSpecific
@@ -74,4 +74,4 @@ tolerations: []
 affinity: {}
 
 redis:
-  senha: "4GgQsPDSVU"
+  senha: "rivm8a9xh9"
